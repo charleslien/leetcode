@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+```markdown
+# LeetCode Practice Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web application to track and analyze your LeetCode problem-solving practice sessions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Track time spent thinking about and coding solutions
+- Filter problems by tags and name
+- Sort by thinking time, coding time, or chronological order
+- View complexity analysis and tags for each problem
+- Direct links to LeetCode problems
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```bash
+# Install dependencies
+npm install
 
-- Configure the top-level `parserOptions` property like this:
+# Start development server
+npm run dev
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Build for production
+npm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Data Format
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Problems are tracked in `public/problems.csv` with the following columns:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- Problem ID: LeetCode problem identifier
+- Thinking: Time spent analyzing problem
+- Coding: Time spent implementing solution
+- Tags: Problem categories/techniques (comma-separated)
+- Runtime: Time complexity
+- Space: Space complexity
 ```
