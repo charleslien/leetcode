@@ -59,6 +59,10 @@ td a:hover {
   color: #ffb84d;
 }
 
+td a:visited {
+  color: #ffc966;
+}
+
 .expanded-details {
   padding: 1.5rem;
   background: #323232;

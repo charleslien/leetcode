@@ -72,6 +72,7 @@
 - Keep UI clean and minimal to emphasize problem-solving data
 - Use visual hierarchy to distinguish between primary actions and supplementary information
 - Match LeetCode's design patterns and aesthetics for familiarity
+- Track user progress through visual feedback (e.g., visited link colors)
 - Provide multiple filtering mechanisms (tags, problem names) for flexible problem discovery
 - Match LeetCode's design patterns and aesthetics for familiarity
 - Match LeetCode's design patterns and aesthetics for familiarity
