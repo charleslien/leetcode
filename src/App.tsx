@@ -165,9 +165,25 @@ function App() {
                 <tr>
                   <td colSpan={6}>
                     <div className="expanded-details">
-                      {problem['Tags'] && <div>Tags: {problem['Tags']}</div>}
-                      {problem['Runtime'] && <div>Runtime: {problem['Runtime']}</div>}
-                      {problem['Space'] && <div>Space: {problem['Space']}</div>}
+                      {problem['Tags'] && <div><strong>Tags:</strong> {problem['Tags']}</div>}
+                      {problem['Runtime'] && (
+                        <div>
+                          <strong>Runtime:</strong> O(
+                          {problem['Runtime'].split('^').map((part, i) => 
+                            i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
+                          )}
+                          )
+                        </div>
+                      )}
+                      {problem['Space'] && (
+                        <div>
+                          <strong>Space:</strong> O(
+                          {problem['Space'].split('^').map((part, i) => 
+                            i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
+                          )}
+                          )
+                        </div>
+                      )}
                     </div>
                   </td>
                 </tr>

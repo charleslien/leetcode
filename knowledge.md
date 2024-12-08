@@ -14,8 +14,8 @@
     - Can include compound tags (e.g., "Math:Parity")
     - Comma-separated, preserve special characters
     - May be empty/undefined
-  - Runtime: Time complexity (e.g., N, N^2)
-  - Space: Space complexity (e.g., 1, N)
+  - Runtime: Time complexity (e.g., O(N), O(N²))
+  - Space: Space complexity (e.g., O(1), O(N))
 - CSV structure is flexible, may include additional columns
 - CSV data stored in public/problems.csv
 - CSV parsing requirements:

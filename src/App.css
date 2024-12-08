@@ -61,15 +61,25 @@ td a:hover {
 
 .expanded-details {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: #323232;
   border-radius: 8px;
   margin: 0.75rem 1.5rem;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .expanded-details > div {
-  margin: 0.75rem 0;
-  color: #ddd;
+  margin: 0.75rem 0.5rem;
+  color: #eff1f6;
+  font-size: 0.95rem;
+  display: inline-block;
+  background: #3c3c3c;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.expanded-details > div strong {
+  color: #ffa116;
+  margin-right: 0.5rem;
 }
 
 .tag-filters {
