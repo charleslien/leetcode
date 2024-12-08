@@ -129,7 +129,7 @@ function App() {
         <thead>
           <tr>
             <th onClick={() => handleSort('Problem ID')}>
-              Problem {sortKey === 'Problem ID' && (sortDirection === 'asc' ? '↑' : '↓')}
+              Problem {sortKey === 'Problem ID' && (sortDirection === 'asc' ? '(Newest) ↑' : '(Oldest) ↓')}
             </th>
             {['Thinking', 'Coding'].map(key => (
               <th key={key} onClick={() => handleSort(key as SortKey)}>
