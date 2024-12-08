@@ -1,11 +1,12 @@
-Problem ID,Thinking,Coding,Tags,Runtime,Space
-count-substrings-that-satisfy-k-constraint-i,5,10,"Sliding Window",N,1
-lucky-numbers-in-a-matrix,5,2,"",N*M,N*M
-percentage-of-letter-in-string,1,1,"",1,1
-rearrange-characters-to-make-target-string,5,5,"",N+M,1
-split-the-array,5,5,"Math:Parity",N,N
-divide-an-array-into-subarrays-with-minimum-cost-i,5,5,"",N,1
-longest-common-prefix,1,5,"",N*M,N
-alternating-digit-sum,1,5,"",log(N),1
-pascals-triangle,5,10,"",N^2,N^2
-count-integers-with-even-digit-sum,10,10,"",log(N),1
+Problem ID,Thinking,Coding,Tags,Runtime,Space,Notes
+count-substrings-that-satisfy-k-constraint-i,5,10,"Sliding Window",N,1,
+lucky-numbers-in-a-matrix,5,2,"",N*M,N*M,
+percentage-of-letter-in-string,1,1,"",1,1,
+rearrange-characters-to-make-target-string,5,5,"",N+M,1,
+split-the-array,5,5,"Math:Parity",N,N,
+divide-an-array-into-subarrays-with-minimum-cost-i,5,5,"",N,1,
+longest-common-prefix,1,5,"",N*M,N,
+alternating-digit-sum,1,5,"",log(N),1,
+pascals-triangle,5,10,"",N^2,N^2,
+count-integers-with-even-digit-sum,10,10,"",log(N),1,
+lowest-common-ancestor-of-a-binary-tree,5,20,"",D,N,D is the depth of the tree.
