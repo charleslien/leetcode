@@ -14,8 +14,14 @@
     - Can include compound tags (e.g., "Math:Parity")
     - Comma-separated, preserve special characters
     - May be empty/undefined
-  - Runtime: Time complexity (e.g., O(N), O(N²))
-  - Space: Space complexity (e.g., O(1), O(N))
+  - Runtime: Time complexity 
+    - Format as "O(X), where X is..." for complex expressions
+    - Always show Big O notation first
+    - Separate explanatory text from notation
+    - Examples: "O(N), where N is array length", "O(N²)"
+  - Space: Space complexity
+    - Follow same formatting as Runtime complexity
+    - Examples: "O(1)", "O(N), where N is input size"
   - Notes: Additional context or observations about the solution
 - CSV structure is flexible, may include additional columns
 - CSV data stored in public/problems.csv

@@ -9,4 +9,5 @@ longest-common-prefix,1,5,"",N*M,N,
 alternating-digit-sum,1,5,"",log(N),1,
 pascals-triangle,5,10,"",N^2,N^2,
 count-integers-with-even-digit-sum,10,10,"",log(N),1,
-lowest-common-ancestor-of-a-binary-tree,5,20,"",D,N,D is the depth of the tree.
+lowest-common-ancestor-of-a-binary-tree,5,20,"","D,D is the depth of the tree",N,
+maximum-product-after-k-increments,5,5,"","N*log(K), N is the length of the array",N,

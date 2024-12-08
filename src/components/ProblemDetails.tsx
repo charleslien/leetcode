@@ -11,19 +11,29 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
     {problem['Runtime'] && (
       <div>
         <strong>Runtime:</strong> O(
-        {problem['Runtime'].split('^').map((part, i) => 
+        {problem['Runtime'].split(',')[0].split('^').map((part, i) => 
           i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
         )}
         )
+        {problem['Runtime'].includes(',') && 
+          <span style={{ fontSize: '0.9em', opacity: 0.8 }}>
+            , where {problem['Runtime'].split(',')[1]}
+          </span>
+        }
       </div>
     )}
     {problem['Space'] && (
       <div>
         <strong>Space:</strong> O(
-        {problem['Space'].split('^').map((part, i) => 
+        {problem['Space'].split(',')[0].split('^').map((part, i) => 
           i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
         )}
         )
+        {problem['Space'].includes(',') && 
+          <span style={{ fontSize: '0.9em', opacity: 0.8 }}>
+            , where {problem['Space'].split(',')[1]}
+          </span>
+        }
       </div>
     )}
     {problem['Notes'] && <div><strong>Notes:</strong> {problem['Notes']}</div>}
