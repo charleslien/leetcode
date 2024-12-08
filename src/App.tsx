@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Papa from 'papaparse'
+import { Problem, SortKey, SortDirection } from './types'
+import { ProblemDetails } from './components/ProblemDetails'
+import { SearchFilters } from './components/SearchFilters'
 import './App.css'
-
-interface Problem {
-  'Problem ID': string;
-  'Thinking': string;
-  'Coding': string;
-  'Tags': string;
-  'Runtime': string;
-  'Space': string;
-}
-
-type SortKey = 'Problem ID' | 'Thinking' | 'Coding'
-type SortDirection = 'asc' | 'desc'
 
 function App() {
   const [problems, setProblems] = useState<Problem[]>([])
@@ -34,7 +25,6 @@ function App() {
         })
         setProblems(results.data)
         
-        // Extract unique tags
         const tags = new Set<string>()
         results.data.forEach(problem => {
           if (problem.Tags) {
@@ -100,31 +90,15 @@ function App() {
 
   return (
     <div className="problems">
-      <div className="tag-filters">
-        <input
-          type="text"
-          placeholder="Search problems..."
-          value={problemSearch}
-          onChange={(e) => setProblemSearch(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Search tags..."
-          value={tagSearch}
-          onChange={(e) => setTagSearch(e.target.value)}
-        />
-        {allTags
-          .filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()))
-          .map(tag => (
-          <button
-            key={tag}
-            onClick={() => toggleTag(tag)}
-            className={selectedTags.includes(tag) ? 'selected' : ''}
-          >
-            {tag}
-          </button>
-        ))}
-      </div>
+      <SearchFilters
+        problemSearch={problemSearch}
+        setProblemSearch={setProblemSearch}
+        tagSearch={tagSearch}
+        setTagSearch={setTagSearch}
+        allTags={allTags}
+        selectedTags={selectedTags}
+        toggleTag={toggleTag}
+      />
       <table>
         <thead>
           <tr>
@@ -164,27 +138,7 @@ function App() {
               {expandedRow === problem['Problem ID'] && (
                 <tr>
                   <td colSpan={6}>
-                    <div className="expanded-details">
-                      {problem['Tags'] && <div><strong>Tags:</strong> {problem['Tags']}</div>}
-                      {problem['Runtime'] && (
-                        <div>
-                          <strong>Runtime:</strong> O(
-                          {problem['Runtime'].split('^').map((part, i) => 
-                            i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
-                          )}
-                          )
-                        </div>
-                      )}
-                      {problem['Space'] && (
-                        <div>
-                          <strong>Space:</strong> O(
-                          {problem['Space'].split('^').map((part, i) => 
-                            i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
-                          )}
-                          )
-                        </div>
-                      )}
-                    </div>
+                    <ProblemDetails problem={problem} />
                   </td>
                 </tr>
               )}

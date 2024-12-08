@@ -1,0 +1,13 @@
+```typescript
+export interface Problem {
+  'Problem ID': string;
+  'Thinking': string;
+  'Coding': string;
+  'Tags': string;
+  'Runtime': string;
+  'Space': string;
+}
+
+export type SortKey = 'Problem ID' | 'Thinking' | 'Coding'
+export type SortDirection = 'asc' | 'desc'
+```

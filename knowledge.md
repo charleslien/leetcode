@@ -58,6 +58,9 @@
 ## Design Principles
 - Focus on core metrics (Problem ID, Thinking, Coding) in main view
 - Use progressive disclosure - show additional details (Tags, Runtime, Space) on expansion
+- Keep code organization simple and maintainable
+  - Prefer single-file solutions until complexity demands otherwise
+  - Avoid premature optimization and over-engineering
 - Preserve chronological ordering by default, newest entries at bottom
 - Keep UI clean and minimal to emphasize problem-solving data
 - Use visual hierarchy to distinguish between primary actions and supplementary information
