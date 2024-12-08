@@ -1,6 +1,6 @@
 Problem ID,Thinking,Coding,Tags,Runtime,Space
 count-substrings-that-satisfy-k-constraint-i,5,10,"Sliding Window",N,1
-lucky-numbers-in-a-matrix,5,2,"",m*n,m*n
+lucky-numbers-in-a-matrix,5,2,"",N*M,N*M
 percentage-of-letter-in-string,1,1,"",1,1
 rearrange-characters-to-make-target-string,5,5,"",N+M,1
 split-the-array,5,5,"Math:Parity",N,N
