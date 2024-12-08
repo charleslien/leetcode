@@ -4,9 +4,11 @@ import './App.css'
 
 interface Problem {
   'Problem ID': string;
-  'Thinking Time': string;
-  'Coding Time': string;
+  'Thinking': string;
+  'Coding': string;
   'Tags': string;
+  'Runtime': string;
+  'Space': string;
 }
 
 type SortKey = keyof Problem
@@ -18,6 +20,7 @@ function App() {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [allTags, setAllTags] = useState<string[]>([])
+  const [tagSearch, setTagSearch] = useState('')
 
   useEffect(() => {
     fetch('/leetcode/problems.csv')
@@ -29,7 +32,12 @@ function App() {
         // Extract unique tags
         const tags = new Set<string>()
         results.data.forEach(problem => {
-          problem.Tags.split(',').forEach(tag => tags.add(tag.trim()))
+          if (problem.Tags) {
+            problem.Tags.split(',').forEach(tag => {
+              const trimmed = tag.trim()
+              if (trimmed) tags.add(trimmed)
+            })
+          }
         })
         setAllTags(Array.from(tags))
       })
@@ -55,23 +63,33 @@ function App() {
   const filteredAndSortedProblems = problems
     .filter(problem => 
       selectedTags.length === 0 || 
-      selectedTags.every(tag => problem.Tags.includes(tag))
+      selectedTags.every(tag => 
+        problem.Tags?.split(',').map(t => t.trim()).includes(tag)
+      )
     )
     .sort((a, b) => {
-      const aVal = a[sortKey]
-      const bVal = b[sortKey]
+      const aVal = a[sortKey] || ''
+      const bVal = b[sortKey] || ''
       const direction = sortDirection === 'asc' ? 1 : -1
       
-      if (sortKey === 'Problem ID' || sortKey === 'Thinking Time' || sortKey === 'Coding Time') {
-        return (Number(aVal) - Number(bVal)) * direction
+      if (sortKey === 'Problem ID' || sortKey === 'Thinking' || sortKey === 'Coding') {
+        return (Number(aVal || 0) - Number(bVal || 0)) * direction
       }
-      return aVal.localeCompare(bVal) * direction
+      return String(aVal).localeCompare(String(bVal)) * direction
     })
 
   return (
     <div className="problems">
       <div className="tag-filters">
-        {allTags.map(tag => (
+        <input
+          type="text"
+          placeholder="Search tags..."
+          value={tagSearch}
+          onChange={(e) => setTagSearch(e.target.value)}
+        />
+        {allTags
+          .filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()))
+          .map(tag => (
           <button
             key={tag}
             onClick={() => toggleTag(tag)}
@@ -86,7 +104,7 @@ function App() {
           <tr>
             {Object.keys(problems[0] || {}).map(key => (
               <th key={key} onClick={() => handleSort(key as SortKey)}>
-                {key} {sortKey === key && (sortDirection === 'asc' ? '↑' : '↓')}
+                {key === 'Problem ID' ? 'Problem' : key} {sortKey === key && (sortDirection === 'asc' ? '↑' : '↓')}
               </th>
             ))}
           </tr>
@@ -94,10 +112,18 @@ function App() {
         <tbody>
           {filteredAndSortedProblems.map(problem => (
             <tr key={problem['Problem ID']}>
-              <td>{problem['Problem ID']}</td>
-              <td>{problem['Thinking Time']}</td>
-              <td>{problem['Coding Time']}</td>
+              <td>
+                <a href={`https://leetcode.com/problems/${problem['Problem ID']}/`} target="_blank">
+                  {problem['Problem ID'].split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                  ).join(' ')}
+                </a>
+              </td>
+              <td>{problem['Thinking']}</td>
+              <td>{problem['Coding']}</td>
               <td>{problem['Tags']}</td>
+              <td>{problem['Runtime']}</td>
+              <td>{problem['Space']}</td>
             </tr>
           ))}
         </tbody>
