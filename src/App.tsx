@@ -1,34 +1,108 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import Papa from 'papaparse'
 import './App.css'
 
+interface Problem {
+  'Problem ID': string;
+  'Thinking Time': string;
+  'Coding Time': string;
+  'Tags': string;
+}
+
+type SortKey = keyof Problem
+type SortDirection = 'asc' | 'desc'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [problems, setProblems] = useState<Problem[]>([])
+  const [sortKey, setSortKey] = useState<SortKey>('Problem ID')
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [allTags, setAllTags] = useState<string[]>([])
+
+  useEffect(() => {
+    fetch('/leetcode/problems.csv')
+      .then(response => response.text())
+      .then(csv => {
+        const results = Papa.parse<Problem>(csv, { header: true })
+        setProblems(results.data)
+        
+        // Extract unique tags
+        const tags = new Set<string>()
+        results.data.forEach(problem => {
+          problem.Tags.split(',').forEach(tag => tags.add(tag.trim()))
+        })
+        setAllTags(Array.from(tags))
+      })
+  }, [])
+
+  const handleSort = (key: SortKey) => {
+    if (key === sortKey) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortKey(key)
+      setSortDirection('asc')
+    }
+  }
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) 
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    )
+  }
+
+  const filteredAndSortedProblems = problems
+    .filter(problem => 
+      selectedTags.length === 0 || 
+      selectedTags.every(tag => problem.Tags.includes(tag))
+    )
+    .sort((a, b) => {
+      const aVal = a[sortKey]
+      const bVal = b[sortKey]
+      const direction = sortDirection === 'asc' ? 1 : -1
+      
+      if (sortKey === 'Problem ID' || sortKey === 'Thinking Time' || sortKey === 'Coding Time') {
+        return (Number(aVal) - Number(bVal)) * direction
+      }
+      return aVal.localeCompare(bVal) * direction
+    })
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="problems">
+      <div className="tag-filters">
+        {allTags.map(tag => (
+          <button
+            key={tag}
+            onClick={() => toggleTag(tag)}
+            className={selectedTags.includes(tag) ? 'selected' : ''}
+          >
+            {tag}
+          </button>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <table>
+        <thead>
+          <tr>
+            {Object.keys(problems[0] || {}).map(key => (
+              <th key={key} onClick={() => handleSort(key as SortKey)}>
+                {key} {sortKey === key && (sortDirection === 'asc' ? '↑' : '↓')}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {filteredAndSortedProblems.map(problem => (
+            <tr key={problem['Problem ID']}>
+              <td>{problem['Problem ID']}</td>
+              <td>{problem['Thinking Time']}</td>
+              <td>{problem['Coding Time']}</td>
+              <td>{problem['Tags']}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 

@@ -1,42 +1,74 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+.problems {
+  margin: 0;
   padding: 2rem;
-  text-align: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(136, 136, 136, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+th {
+  background: #1a1a1a;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
 }
 
-.card {
-  padding: 2em;
+th:hover {
+  background: #2a2a2a;
 }
 
-.read-the-docs {
-  color: #888;
+th:first-child {
+  border-top-left-radius: 8px;
+}
+
+th:last-child {
+  border-top-right-radius: 8px;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tag-filters {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-filters button {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(100, 108, 255, 0.3);
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.tag-filters button:hover {
+  border-color: #646cff;
+  transform: translateY(-1px);
+}
+
+.tag-filters button.selected {
+  background: #646cff;
+  color: white;
+  border-color: #646cff;
 }
