@@ -16,6 +16,7 @@
     - May be empty/undefined
   - Runtime: Time complexity (e.g., O(N), O(N²))
   - Space: Space complexity (e.g., O(1), O(N))
+  - Notes: Additional context or observations about the solution
 - CSV structure is flexible, may include additional columns
 - CSV data stored in public/problems.csv
 - CSV parsing requirements:

@@ -6,6 +6,7 @@ export interface Problem {
   'Tags': string;
   'Runtime': string;
   'Space': string;
+  'Notes'?: string;
 }
 
 export type SortKey = 'Problem ID' | 'Thinking' | 'Coding'

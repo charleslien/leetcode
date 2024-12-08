@@ -26,5 +26,6 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
         )
       </div>
     )}
+    {problem['Notes'] && <div><strong>Notes:</strong> {problem['Notes']}</div>}
   </div>
 )
