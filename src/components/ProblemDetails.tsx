@@ -1,4 +1,3 @@
-```typescript
 import React from 'react'
 import { Problem } from '../types'
 
@@ -29,4 +28,3 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
     )}
   </div>
 )
-```

@@ -1,4 +1,3 @@
-```typescript
 import React from 'react'
 
 interface SearchFiltersProps {
@@ -46,4 +45,3 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
       ))}
   </div>
 )
-```
