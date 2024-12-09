@@ -2,6 +2,7 @@ export interface Problem {
   'Problem ID': string;
   'Thinking': string;
   'Coding': string;
+  'LeetCode Tags'?: string;
   'Tags'?: string;
   'Runtime': string;
   'Space': string;
