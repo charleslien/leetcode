@@ -1,3 +1,5 @@
+import { LEETCODE_TAG_PREFIX } from '../constants'
+
 export const extractAndOrderTags = (problems: { Tags?: string }[]) => {
   const tags = new Set<string>()
   problems.forEach(problem => {
@@ -9,8 +11,7 @@ export const extractAndOrderTags = (problems: { Tags?: string }[]) => {
     }
   })
   const unorderedTags = Array.from(tags)
-  const leetCodePrefix = "LeetCode:"
-  const orderedLeetcodeTags = unorderedTags.filter(tag => tag.startsWith(leetCodePrefix)).sort()
-  const orderedNonleetcodeTags = unorderedTags.filter(tag => !tag.startsWith(leetCodePrefix)).sort()
+  const orderedLeetcodeTags = unorderedTags.filter(tag => tag.startsWith(LEETCODE_TAG_PREFIX)).sort()
+  const orderedNonleetcodeTags = unorderedTags.filter(tag => !tag.startsWith(LEETCODE_TAG_PREFIX)).sort()
   return [...orderedLeetcodeTags, ...orderedNonleetcodeTags]
 }
