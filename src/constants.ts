@@ -20,4 +20,4 @@ export const SORT = {
 
 export const ROMAN_NUMERALS: string[] = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x']
 
-export const PAGE_SIZES: int[] = [10, 25, 50, 100]
+export const PAGE_SIZES: number[] = [10, 25, 50, 100]
