@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { InfoHeader } from './components/InfoHeader'
 import { Problem, SortKey, SortDirection } from './types'
 import { SearchFilters } from './components/SearchFilters'
