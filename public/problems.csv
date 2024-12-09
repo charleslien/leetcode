@@ -1,21 +1,21 @@
 Problem ID,Thinking,Coding,LeetCode Tags,Tags,Runtime,Space,Notes
-count-substrings-that-satisfy-k-constraint-i,5,10,"String,Sliding Window","","N,N is the length of the array",1,
-lucky-numbers-in-a-matrix,5,5,"Array,Matrix","","N*M,N and M are the number of rows and columns of the matrix","N*M",
+count-substrings-that-satisfy-k-constraint-i,5,5,"String,Sliding Window","","N,N is the length of the array",1,
+lucky-numbers-in-a-matrix,5,2,"Array,Matrix","","N*M,N and M are the number of rows and columns of the matrix","N*M",
 percentage-of-letter-in-string,1,2,"String","",1,1,
-rearrange-characters-to-make-target-string,5,5,"Hash Table,String,Counting","","N+M,N is the length of s,M is the length of target",1,
-split-the-array,5,5,"Array,Hash Table,Counting","Parity","N,N is the length of the array","N,N is the length of the array",
-divide-an-array-into-subarrays-with-minimum-cost-i,5,5,"Array,Sorting,Enumeration","","N,N is the length of the array",1,
-longest-common-prefix,1,5,"String,Trie","","N*M,N is the number of strings,M is the average length of the shortest string","P,P is the length of the prefix",
-alternating-digit-sum,1,5,"Math","","log(N)",1,
-pascals-triangle,5,10,"Array,Dynamic Programming","",N^2,N^2,
-count-integers-with-even-digit-sum,10,10,"Math,Simulation","",log(N),1,
-lowest-common-ancestor-of-a-binary-tree,5,20,"Tree,Depth-First Search,Binary Tree","","D,D is the depth of the tree","N,N is the number of nodes in the tree",
-maximum-product-after-k-increments,5,5,"Array,Greedy,Heap (Priority Queue)","","N*log(K),N is the length of the array",N,
-number-of-ways-to-select-buildings,10,10,"String,Dynamic Programming,Prefix Sum","Markov Model","N,N is the length of the array",1,
-kth-missing-positive-number,30,20,"Array,Binary Search","","log(N),N is the length of the array",1,
-shortest-subarray-with-sum-at-least-k,60,60,"Array,Binary Search,Queue,Sliding Window,Heap (Priority Queue),Prefix Sum,Monotonic Queue","","N,N is the length of the array","N",
-special-array-ii,10,20,"Array,Binary Search,Prefix Sum","","N+Q*log(N),N is the length of the array,Q is the number of queries","N",
-knight-dialer,10,40,"Dynamic Programming","Markov Model","log(N),N is the length of the array",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 15."
-number-of-ways-to-paint-n-3-grid,15,30,"Dynamic Programming","Markov Model","log(N)",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 10."
+rearrange-characters-to-make-target-string,2,2,"Hash Table,String,Counting","","N+M,N is the length of s,M is the length of target",1,
+split-the-array,2,2,"Array,Hash Table,Counting","Parity","N,N is the length of the array","N,N is the length of the array",
+divide-an-array-into-subarrays-with-minimum-cost-i,2,2,"Array,Sorting,Enumeration","","N,N is the length of the array",1,
+longest-common-prefix,1,2,"String,Trie","","N*M,N is the number of strings,M is the average length of the shortest string","P,P is the length of the prefix",
+alternating-digit-sum,1,2,"Math","","log(N)",1,
+pascals-triangle,2,5,"Array,Dynamic Programming","",N^2,N^2,
+count-integers-with-even-digit-sum,5,5,"Math,Simulation","",log(N),1,
+lowest-common-ancestor-of-a-binary-tree,2,10,"Tree,Depth-First Search,Binary Tree","","D,D is the depth of the tree","N,N is the number of nodes in the tree",
+maximum-product-after-k-increments,2,2,"Array,Greedy,Heap (Priority Queue)","","N*log(K),N is the length of the array",N,
+number-of-ways-to-select-buildings,5,5,"String,Dynamic Programming,Prefix Sum","Markov Model","N,N is the length of the array",1,
+kth-missing-positive-number,15,10,"Array,Binary Search","","log(N),N is the length of the array",1,
+shortest-subarray-with-sum-at-least-k,15,10,"Array,Binary Search,Queue,Sliding Window,Heap (Priority Queue),Prefix Sum,Monotonic Queue","","N,N is the length of the array","N",
+special-array-ii,5,10,"Array,Binary Search,Prefix Sum","","N+Q*log(N),N is the length of the array,Q is the number of queries","N",
+knight-dialer,5,15,"Dynamic Programming","Markov Model","log(N),N is the length of the array",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 5."
+number-of-ways-to-paint-n-3-grid,5,15,"Dynamic Programming","Markov Model","log(N)",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 5."
 reverse-prefix-of-word,1,2,"Two Pointers,String,Stack","","N,N is the length of the word",N,
 check-if-one-string-swap-can-make-strings-equal,1,2,"Hash Table,String,Counting","","N,N is the length of the smaller word",1
