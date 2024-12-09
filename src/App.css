@@ -155,3 +155,46 @@ td a:visited {
   border-color: #ffa116;
   box-shadow: 0 2px 4px rgba(255, 161, 22, 0.2);
 }
+
+select {
+  padding: 0.5rem 1rem;
+  background: #323232;
+  color: #eff1f6;
+  border: 1px solid #3c3c3c;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+select option {
+  background: #323232;
+  color: #eff1f6;
+}
+
+select:hover {
+  border-color: #ffa116;
+  transform: translateY(-1px);
+  background: rgba(255, 161, 22, 0.1);
+}
+
+.page-button {
+  padding: 0.5rem 1rem;
+  background: #323232;
+  color: #eff1f6;
+  border: 1px solid #3c3c3c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-button:hover:not(:disabled) {
+  border-color: #ffa116;
+  transform: translateY(-1px);
+}
+
+.page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

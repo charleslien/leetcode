@@ -3,9 +3,10 @@ import { InfoHeader } from './components/InfoHeader'
 import { Problem, SortKey, SortDirection } from './types'
 import { SearchFilters } from './components/SearchFilters'
 import { ProblemsTable } from './components/ProblemsTable'
+import { Pagination } from './components/Pagination'
 import { fetchAndParseCsv } from './services/csvService'
 import { extractAndOrderTags } from './utils/tagUtils'
-import { COLUMNS, SORT } from './constants'
+import { COLUMNS, SORT, PAGE_SIZES } from './constants'
 import './App.css'
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
   const [allTags, setAllTags] = useState<string[]>([])
   const [tagSearch, setTagSearch] = useState('')
   const [problemSearch, setProblemSearch] = useState('')
+  const [itemsPerPage, setItemsPerPage] = useState(PAGE_SIZES[0])
+  const [currentPage, setCurrentPage] = useState(0)
 
   useEffect(() => {
     fetchAndParseCsv().then(transformedData => {
@@ -87,11 +90,21 @@ function App() {
         toggleTag={toggleTag}
       />
       <ProblemsTable
-        problems={filteredAndSortedProblems}
+        problems={filteredAndSortedProblems.slice(
+          currentPage * itemsPerPage,
+          (currentPage + 1) * itemsPerPage
+        )}
         sortKey={sortKey}
         sortDirection={sortDirection}
         handleSort={handleSort}
 
+      />
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsPerPage={itemsPerPage}
+        setItemsPerPage={setItemsPerPage}
+        totalItems={filteredAndSortedProblems.length}
       />
     </div>
   )
