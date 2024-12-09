@@ -1,4 +1,15 @@
 import React from 'react'
+
+const getScoreColor = (score: number): string => {
+  const normalizedScore = Math.min(score, 60) / 60
+  if (normalizedScore <= 0.3) {
+    // Gradient from green to orange
+    return `hsl(${120 - normalizedScore * 200}, 70%, 45%)`
+  }
+  // Gradient from orange to red
+  return `hsl(${36 - (normalizedScore - 0.3) * 36}, 90%, 55%)`
+}
+
 import { Problem } from '../types'
 import { ProblemDetails } from './ProblemDetails'
 import { COLUMNS, LEETCODE_URL_PREFIX, ROMAN_NUMERALS } from '../constants'
@@ -32,8 +43,12 @@ export const TableRow: React.FC<TableRowProps> = ({
           }).join(' ')}
         </a>
       </td>
-      <td>{problem[COLUMNS.THINKING]}</td>
-      <td>{problem[COLUMNS.CODING]}</td>
+      <td style={{ color: getScoreColor(Number(problem[COLUMNS.THINKING])) }}>
+        {problem[COLUMNS.THINKING]}
+      </td>
+      <td style={{ color: getScoreColor(Number(problem[COLUMNS.CODING])) }}>
+        {problem[COLUMNS.CODING]}
+      </td>
     </tr>
     {isExpanded && (
       <tr>

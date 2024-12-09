@@ -1,3 +1,18 @@
+h1 {
+  color: #ffa116;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.info-blurb {
+  color: rgba(239, 241, 246, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  max-width: 800px;
+}
+
 .problems {
   margin: 2rem auto;
   padding: 2rem;

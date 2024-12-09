@@ -8,8 +8,13 @@
 ## Data Structure
 - Problems tracked in CSV format with columns:
   - Problem ID: LeetCode problem identifier
-  - Thinking: Time spent analyzing problem
-  - Coding: Time spent implementing solution
+  - Thinking: Time in minutes spent analyzing and determining solution approach
+  - Coding: Time in minutes spent implementing the solution
+  - Note: Times are aggressive estimates - treat them as aspirational targets rather than strict requirements
+  - Scores range from 1-60 minutes, with higher scores indicating higher difficulty
+  - Times over 60 minutes are considered extreme edge cases
+  - Scores range from 1-60 minutes, with higher scores indicating higher difficulty
+  - Times over 60 minutes are considered extreme edge cases
   - Tags: Problem categories/techniques
     - Can include compound tags (e.g., "Math:Parity")
     - Comma-separated, preserve special characters
@@ -81,6 +86,11 @@
 ## Design Principles
 - Focus on core metrics (Problem ID, Thinking, Coding) in main view
 - Use progressive disclosure - show additional details (Tags, Runtime, Space) on expansion
+- Keep UI clean and minimal to emphasize problem-solving data
+- Use visual hierarchy to distinguish between primary actions and supplementary information
+- Match LeetCode's design patterns and aesthetics for familiarity
+- Track user progress through visual feedback (e.g., visited link colors)
+- Provide multiple filtering mechanisms (tags, problem names) for flexible problem discovery
 - Keep data transformations (filtering, sorting) in parent components
 - Pass transformed data down to child components to maintain single source of truth
 - Keep code organization simple and maintainable
