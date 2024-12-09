@@ -123,10 +123,6 @@ td a:visited {
   color: #eff1f6;
 }
 
-.tag-filters button[data-leetcode="true"] {
-  color: #2cbb5d;
-}
-
 .tag-filters button:hover {
   border-color: #ffa116;
   transform: translateY(-1px);

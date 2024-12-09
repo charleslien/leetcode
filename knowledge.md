@@ -81,6 +81,8 @@
 ## Design Principles
 - Focus on core metrics (Problem ID, Thinking, Coding) in main view
 - Use progressive disclosure - show additional details (Tags, Runtime, Space) on expansion
+- Keep data transformations (filtering, sorting) in parent components
+- Pass transformed data down to child components to maintain single source of truth
 - Keep code organization simple and maintainable
   - Prefer single-file solutions until complexity demands otherwise
   - Avoid premature optimization and over-engineering

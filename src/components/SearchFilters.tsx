@@ -1,4 +1,5 @@
 import React from 'react'
+import { LEETCODE_TAG_PREFIX } from '../constants'
 
 interface SearchFiltersProps {
   problemSearch: string;
@@ -38,9 +39,13 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
             key={tag}
             onClick={() => toggleTag(tag)}
             className={selectedTags.includes(tag) ? 'selected' : ''}
-            data-leetcode={tag.startsWith('LeetCode:')}
           >
-          {tag}
+          {tag.startsWith(LEETCODE_TAG_PREFIX) ? (
+            <>
+              <span style={{ opacity: 0.6 }}>{LEETCODE_TAG_PREFIX}</span>
+              {tag.slice(LEETCODE_TAG_PREFIX.length)}
+            </>
+          ) : tag}
         </button>
       ))}
   </div>
