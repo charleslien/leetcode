@@ -15,3 +15,5 @@ number-of-ways-to-select-buildings,10,10,"String,Dynamic Programming,Prefix Sum"
 kth-missing-positive-number,30,20,"Array,Binary Search","","log(N),N is the length of the array",1,
 shortest-subarray-with-sum-at-least-k,60,60,"Array,Binary Search,Queue,Sliding Window,Heap (Priority Queue),Prefix Sum,Monotonic Queue","","N,N is the length of the array","N",
 special-array-ii,10,20,"Array,Binary Search,Prefix Sum","","N+Q*log(N),N is the length of the array,Q is the number of queries","N",
+knight-dialer,10,40,"Dynamic Programming","Markov Model","log(N),N is the length of the array",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 15."
+number-of-ways-to-paint-n-3-grid,15,30,"Dynamic Programming","Markov Model","log(N)",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 10."
