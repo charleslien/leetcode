@@ -34,12 +34,12 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
     />
     {allTags
       .filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()))
-      .map(tag => (
-        <button
-          key={tag}
-          onClick={() => toggleTag(tag)}
-          className={selectedTags.includes(tag) ? 'selected' : ''}
-        >
+      .map(tag => (          <button
+            key={tag}
+            onClick={() => toggleTag(tag)}
+            className={selectedTags.includes(tag) ? 'selected' : ''}
+            data-leetcode={tag.startsWith('LeetCode:')}
+          >
           {tag}
         </button>
       ))}

@@ -29,6 +29,22 @@
   - Filter out empty rows
   - Validate each row has required fields
   - Last line should not be empty to avoid phantom entries
+  - PapaParse transform limitations:
+    - Transform functions run during parsing, cannot access full results
+    - For cross-row transforms, process after parsing complete
+    - Transform functions receive only current field value and header
+  - PapaParse transform limitations:
+    - Transform functions run during parsing, cannot access full results
+    - For cross-row transforms, process after parsing complete
+    - Transform functions receive only current field value and header
+  - PapaParse transform limitations:
+    - Transform functions run during parsing, cannot access full results
+    - For cross-row transforms, process after parsing complete
+    - Transform functions receive only current field value and header
+  - PapaParse transform limitations:
+    - Transform functions run during parsing, cannot access full results
+    - For cross-row transforms, process after parsing complete
+    - Transform functions receive only current field value and header
 - Core metrics (Problem ID, Thinking, Coding) displayed prominently
 - CSV entries ordered chronologically with newest at bottom
 - Default view preserves chronological order

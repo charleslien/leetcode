@@ -23,10 +23,24 @@ function App() {
           header: true,
           skipEmptyLines: true 
         })
-        setProblems(results.data)
+        
+        const transformedData = results.data.map(problem => {
+          const leetcodeTags = problem['LeetCode Tags']?.split(',')
+            .map(tag => `LeetCode:${tag.trim()}`) || [];
+          const customTags = problem['Tags']?.split(',')
+            .map(tag => tag.trim())
+            .filter(Boolean) || [];
+          
+          return {
+            ...problem,
+            Tags: [...leetcodeTags, ...customTags].join(', ')
+          };
+        });
+        
+        setProblems(transformedData)
         
         const tags = new Set<string>()
-        results.data.forEach(problem => {
+        transformedData.forEach(problem => {
           if (problem.Tags) {
             problem.Tags.split(',').forEach(tag => {
               const trimmed = tag.trim()
@@ -34,7 +48,11 @@ function App() {
             })
           }
         })
-        setAllTags(Array.from(tags))
+        const unorderedTags = Array.from(tags)
+        const leetCodePrefix = "LeetCode:"
+        const orderedLeetcodeTags = unorderedTags.filter(tag => tag.startsWith(leetCodePrefix)).sort()
+        const orderedNonleetcodeTags = unorderedTags.filter(tag => !tag.startsWith(leetCodePrefix)).sort()
+        setAllTags([...orderedLeetcodeTags, ...orderedNonleetcodeTags])
       })
   }, [])
 
