@@ -18,3 +18,4 @@ special-array-ii,10,20,"Array,Binary Search,Prefix Sum","","N+Q*log(N),N is the 
 knight-dialer,10,40,"Dynamic Programming","Markov Model","log(N),N is the length of the array",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 15."
 number-of-ways-to-paint-n-3-grid,15,30,"Dynamic Programming","Markov Model","log(N)",1,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 10."
 reverse-prefix-of-word,1,2,"Two Pointers,String,Stack","","N,N is the length of the word",N,
+check-if-one-string-swap-can-make-strings-equal,1,2,"Hash Table,String,Counting","","N,N is the length of the smaller word",1
