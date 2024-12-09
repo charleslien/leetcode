@@ -18,4 +18,4 @@ export const SORT = {
   DESC: 'desc',
 } as const
 
-export const ROMAN_NUMERALS = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'] as const
+export const ROMAN_NUMERALS: string[] = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x']
