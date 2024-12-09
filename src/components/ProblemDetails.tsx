@@ -1,6 +1,6 @@
 import React from 'react'
 import { Problem } from '../types'
-import { COLUMNS } from '../constants'
+import { COLUMNS, LEETCODE_TAG_PREFIX } from '../constants'
 
 interface ProblemDetailsProps {
   problem: Problem;
@@ -8,7 +8,22 @@ interface ProblemDetailsProps {
 
 export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
   <div className="expanded-details">
-    {problem[COLUMNS.TAGS] && <div><strong>Tags:</strong> {problem[COLUMNS.TAGS]}</div>}
+    {problem[COLUMNS.TAGS] && (
+      <div>
+        <strong>Tags:</strong>{' '}
+        {problem[COLUMNS.TAGS].split(',').map((tag, index, array) => {
+          const trimmedTag = tag.trim();
+          const isLast = index === array.length - 1;
+          return trimmedTag.startsWith(LEETCODE_TAG_PREFIX) ? (
+            <span key={trimmedTag}>
+              <span style={{ opacity: 0.6 }}>{LEETCODE_TAG_PREFIX}</span>
+              {trimmedTag.slice(LEETCODE_TAG_PREFIX.length)}
+              {!isLast && ', '}
+            </span>
+          ) : trimmedTag + (!isLast ? ', ' : '')
+        })}
+      </div>
+    )}
     {problem[COLUMNS.RUNTIME] && (
       <div>
         <strong>Runtime:</strong> O(
