@@ -1,7 +1,7 @@
 Problem ID,Thinking,Coding,LeetCode Tags,Tags,Runtime,Space,Notes
 count-substrings-that-satisfy-k-constraint-i,5,10,"String,Sliding Window","","N,N is the length of the array",1,
-lucky-numbers-in-a-matrix,5,2,"Array,Matrix","","N*M,N and M are the number of rows and columns of the matrix","N*M",
-percentage-of-letter-in-string,1,1,"String","",1,1,
+lucky-numbers-in-a-matrix,5,5,"Array,Matrix","","N*M,N and M are the number of rows and columns of the matrix","N*M",
+percentage-of-letter-in-string,1,2,"String","",1,1,
 rearrange-characters-to-make-target-string,5,5,"Hash Table,String,Counting","","N+M,N is the length of s,M is the length of target",1,
 split-the-array,5,5,"Array,Hash Table,Counting","Parity","N,N is the length of the array","N,N is the length of the array",
 divide-an-array-into-subarrays-with-minimum-cost-i,5,5,"Array,Sorting,Enumeration","","N,N is the length of the array",1,
