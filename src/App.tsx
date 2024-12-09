@@ -11,14 +11,29 @@ import './App.css'
 
 function App() {
   const [problems, setProblems] = useState<Problem[]>([])
-  const [sortKey, setSortKey] = useState<SortKey>('Problem ID')
-  const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
-  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [sortKey, setSortKey] = useState<SortKey>(() => {
+    const saved = localStorage.getItem('sortKey')
+    return (saved as SortKey) || 'Problem ID'
+  })
+  const [sortDirection, setSortDirection] = useState<SortDirection>(() => {
+    const saved = localStorage.getItem('sortDirection')
+    return (saved as SortDirection) || SORT.ASC
+  })
+  const [selectedTags, setSelectedTags] = useState<string[]>(() => {
+    const saved = localStorage.getItem('selectedTags')
+    return saved ? JSON.parse(saved) : []
+  })
   const [allTags, setAllTags] = useState<string[]>([])
   const [tagSearch, setTagSearch] = useState('')
   const [problemSearch, setProblemSearch] = useState('')
-  const [itemsPerPage, setItemsPerPage] = useState(PAGE_SIZES[0])
-  const [currentPage, setCurrentPage] = useState(0)
+  const [itemsPerPage, setItemsPerPage] = useState(() => {
+    const saved = localStorage.getItem('itemsPerPage')
+    return saved ? Number(saved) : PAGE_SIZES[0]
+  })
+  const [currentPage, setCurrentPage] = useState(() => {
+    const saved = localStorage.getItem('currentPage')
+    return saved ? Number(saved) : 0
+  })
 
   useEffect(() => {
     fetchAndParseCsv().then(transformedData => {
@@ -26,6 +41,12 @@ function App() {
       setAllTags(extractAndOrderTags(transformedData))
     })
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('sortKey', sortKey)
+    localStorage.setItem('sortDirection', sortDirection)
+    localStorage.setItem('currentPage', String(currentPage))
+  }, [sortKey, sortDirection, currentPage])
 
   const handleSort = (key: SortKey) => {
     if (key === sortKey) {
@@ -37,12 +58,18 @@ function App() {
   }
 
   const toggleTag = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
+    setSelectedTags(prev => {
+      const next = prev.includes(tag) 
         ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    )
+        : [...prev, tag];
+      localStorage.setItem('selectedTags', JSON.stringify(next));
+      return next;
+    })
   }
+
+  useEffect(() => {
+    localStorage.setItem('itemsPerPage', String(itemsPerPage))
+  }, [itemsPerPage])
 
   const filteredAndSortedProblems = problems
     .filter(problem => {
