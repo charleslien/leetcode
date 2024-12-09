@@ -13,3 +13,5 @@ lowest-common-ancestor-of-a-binary-tree,5,20,"Tree,Depth-First Search,Binary Tre
 maximum-product-after-k-increments,5,5,"Array,Greedy,Heap (Priority Queue)","","N*log(K),N is the length of the array",N,
 number-of-ways-to-select-buildings,10,10,"String,Dynamic Programming,Prefix Sum","Markov Model","N,N is the length of the array",1,
 kth-missing-positive-number,30,20,"Array,Binary Search","","log(N),N is the length of the array",1,
+shortest-subarray-with-sum-at-least-k,60,60,"Array,Binary Search,Queue,Sliding Window,Heap (Priority Queue),Prefix Sum,Monotonic Queue","","N,N is the length of the array","N",
+special-array-ii,10,20,"Array,Binary Search,Prefix Sum","","N+Q*log(N),N is the length of the array,Q is the number of queries","N",
