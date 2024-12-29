@@ -24,3 +24,4 @@ minimum-difference-in-sums-after-removal-of-elements,15,10,"Array,Dynamic Progra
 number-of-ways-to-form-a-target-string-given-a-dictionary,2,10,"Array,String,Dynamic Programming","","M(N+K),N is the number of words,M is the length of each word,K is the length of target",K,
 two-best-non-overlapping-events,5,5,"Array,Binary Search,Dynamic Programming,Sorting,Heap (Priority Queue)","","N*log(N),N is the number of events",N,
 copy-list-with-random-pointer,1,5,"Hash Table,Linked List","","N,N is the number of nodes in the list",N,
+max-dot-product-of-two-subsequences,5,10,"Array,Dynamic Programming","","N*M,N is the length of nums1,M is the length of nums2","min(N, M)",
