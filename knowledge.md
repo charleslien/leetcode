@@ -35,12 +35,14 @@
     - Comma-separated, preserve special characters
     - May be empty/undefined
   - Runtime: Time complexity 
-    - Format as "O(X), where X is..." for complex expressions
-    - Always show Big O notation first
-    - Separate explanatory text from notation
+    - Format complexity without "O()" prefix in CSV: "N|N is the length of the array"
+    - Separate explanatory text from expression using "|" (no spaces)
+    - Component adds "O()" wrapper when displaying
+    - For expressions with commas inside O(), enclose in parentheses: "O(min(N,M))"
+    - Examples: "O(N)", "O(min(N,M))", "O(N) | N is the length of the array", "O(min(N,M)) | N and M are array lengths"
   - Space: Space complexity
     - Follow same formatting as Runtime complexity
-    - Examples: "O(1)", "O(N), where N is input size"
+    - Examples: "O(1)", "O(N), where N is input size", "O(min(N,M))"
   - Notes: Additional context or observations about the solution
 
 ## CSV Requirements
