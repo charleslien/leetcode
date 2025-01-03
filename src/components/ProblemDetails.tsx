@@ -32,7 +32,12 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
             )
             {problem[COLUMNS.RUNTIME].includes('|') && (
               <div style={{ fontSize: '0.9em', opacity: 0.8, marginTop: '0.25rem', marginLeft: '1rem' }}>
-                where {problem[COLUMNS.RUNTIME].split('|').slice(1).join(', ')}
+                where:
+                {problem[COLUMNS.RUNTIME].split('|').slice(1).map((explanation, i) => (
+                  <div key={i} style={{ marginLeft: '0.5rem', marginTop: '0.125rem' }}>
+                    • {explanation.trim()}
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -46,7 +51,12 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
             )
             {problem[COLUMNS.SPACE].includes('|') && (
               <div style={{ fontSize: '0.9em', opacity: 0.8, marginTop: '0.25rem', marginLeft: '1rem' }}>
-                where {problem[COLUMNS.SPACE].split('|').slice(1).join(', ')}
+                where:
+                {problem[COLUMNS.SPACE].split('|').slice(1).map((explanation, i) => (
+                  <div key={i} style={{ marginLeft: '0.5rem', marginTop: '0.125rem' }}>
+                    • {explanation.trim()}
+                  </div>
+                ))}
               </div>
             )}
           </div>
