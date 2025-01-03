@@ -91,14 +91,14 @@ td a:visited {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.expanded-details > div {
-  margin: 0.75rem 0.5rem;
+.expanded-details .detail-chip {
+  margin: 0.75rem 0;
   color: #eff1f6;
   font-size: 0.95rem;
-  display: inline-block;
   background: #3c3c3c;
   padding: 0.5rem 1rem;
   border-radius: 20px;
+  display: block;
 }
 
 .expanded-details > div strong {

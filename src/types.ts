@@ -6,6 +6,7 @@ export interface Problem {
   'Tags': string;
   'Runtime': string;
   'Space': string;
+  'Variables': string;
   'Notes': string;
 }
 

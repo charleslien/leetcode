@@ -6,6 +6,7 @@ export const COLUMNS = {
   TAGS: 'Tags',
   RUNTIME: 'Runtime',
   SPACE: 'Space',
+  VARIABLES: 'Variables',
   NOTES: 'Notes',
 } as const
 

@@ -9,7 +9,7 @@ interface ProblemDetailsProps {
 export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
   <div className="expanded-details">
     {problem[COLUMNS.TAGS] && (
-      <div>
+      <div className="detail-chip">
         <strong>Tags:</strong>{' '}
         {problem[COLUMNS.TAGS].split('|').map((tag, index, array) => {
           const trimmedTag = tag.trim();
@@ -24,43 +24,33 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
         })}
       </div>
     )}        {problem[COLUMNS.RUNTIME] && (
-          <div>
+          <div className="detail-chip">
             <strong>Runtime:</strong> O(
-            {problem[COLUMNS.RUNTIME].split('|')[0].split('^').map((part, i) => 
+            {problem[COLUMNS.RUNTIME].split('^').map((part, i) => 
               i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
             )}
             )
-            {problem[COLUMNS.RUNTIME].includes('|') && (
-              <div style={{ fontSize: '0.9em', opacity: 0.8, marginTop: '0.25rem', marginLeft: '1rem' }}>
-                where:
-                {problem[COLUMNS.RUNTIME].split('|').slice(1).map((explanation, i) => (
-                  <div key={i} style={{ marginLeft: '0.5rem', marginTop: '0.125rem' }}>
-                    • {explanation.trim()}
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         )}
         {problem[COLUMNS.SPACE] && (
-          <div>
+          <div className="detail-chip">
             <strong>Space:</strong> O(
-            {problem[COLUMNS.SPACE].split('|')[0].split('^').map((part, i) => 
+            {problem[COLUMNS.SPACE].split('^').map((part, i) => 
               i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
             )}
             )
-            {problem[COLUMNS.SPACE].includes('|') && (
-              <div style={{ fontSize: '0.9em', opacity: 0.8, marginTop: '0.25rem', marginLeft: '1rem' }}>
-                where:
-                {problem[COLUMNS.SPACE].split('|').slice(1).map((explanation, i) => (
-                  <div key={i} style={{ marginLeft: '0.5rem', marginTop: '0.125rem' }}>
-                    • {explanation.trim()}
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         )}
-    {problem[COLUMNS.NOTES] && <div><strong>Notes:</strong> {problem[COLUMNS.NOTES]}</div>}
+    {problem[COLUMNS.VARIABLES] && (
+      <div className="detail-chip">
+        <strong>Variables:</strong>
+        {problem[COLUMNS.VARIABLES].split('|').map((variable, i) => (
+          <div key={i} style={{ marginLeft: '1rem', marginTop: '0.25rem' }}>
+            • {variable.trim()}
+          </div>
+        ))}
+      </div>
+    )}
+    {problem[COLUMNS.NOTES] && <div className="detail-chip"><strong>Notes:</strong> {problem[COLUMNS.NOTES]}</div>}
   </div>
 )

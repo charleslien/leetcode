@@ -34,15 +34,17 @@
     - Can include compound tags (e.g., "Math:Parity")
     - Pipe-delimited (|), preserve special characters
     - May be empty/undefined
-  - Runtime: Time complexity 
-    - Format complexity without "O()" prefix in CSV: "N|N is the length of the array"
-    - Separate explanatory text from expression using "|" (no spaces)
+  - Runtime: Time complexity expression without O() prefix
+    - Just the expression: "N", "N*M", "N^2", "min(N|M)"
     - Component adds "O()" wrapper when displaying
-    - For expressions with commas inside O(), enclose in parentheses: "O(min(N,M))"
-    - Examples: "O(N)", "O(min(N,M))", "O(N) | N is the length of the array", "O(min(N,M)) | N and M are array lengths"
-  - Space: Space complexity
-    - Follow same formatting as Runtime complexity
-    - Examples: "O(1)", "O(N)|N is input size", "O(min(N,M))"
+    - For expressions with commas, use pipes: "min(N|M)"
+  - Space: Space complexity expression
+    - Same format as Runtime
+  - Variables: Variable definitions
+    - Pipe-delimited list of variable definitions
+    - Use equals sign format: "N = length of array"
+    - Keep descriptions concise
+    - Example: "N = array length|M = target size"
   - Notes: Additional context or observations about the solution
 
 ## CSV Requirements
@@ -62,6 +64,10 @@
 ## Development
 - Run `npm run dev` to start development server
 - Run `npm run build` to create production build
+
+## Version Control
+- Do not commit changes unless explicitly requested
+- Stage changes with `git add` as needed
 
 ## Technology Stack
 - React 18+
