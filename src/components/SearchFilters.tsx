@@ -35,11 +35,12 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
     />
     {allTags
       .filter(tag => tag.toLowerCase().includes(tagSearch.toLowerCase()))
-      .map(tag => (          <button
-            key={tag}
-            onClick={() => toggleTag(tag)}
-            className={selectedTags.includes(tag) ? 'selected' : ''}
-          >
+      .map(tag => (
+        <button
+          key={tag}
+          onClick={() => toggleTag(tag)}
+          className={selectedTags.includes(tag) ? 'selected' : ''}
+        >
           {tag.startsWith(LEETCODE_TAG_PREFIX) ? (
             <>
               <span style={{ opacity: 0.6 }}>{LEETCODE_TAG_PREFIX}</span>

@@ -75,7 +75,7 @@ function App() {
     .filter(problem => {
       const matchesTags = selectedTags.length === 0 || 
         selectedTags.every(tag => 
-          problem.Tags?.split(',').map(t => t.trim()).includes(tag)
+          problem.Tags?.split('|').map(t => t.trim()).includes(tag)
         );
       const matchesProblem = problem[COLUMNS.PROBLEM_ID].toLowerCase()
         .includes(problemSearch.toLowerCase());

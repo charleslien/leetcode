@@ -10,15 +10,15 @@ export const fetchAndParseCsv = async (): Promise<Problem[]> => {
   })
   
   return results.data.map(problem => {
-    const leetcodeTags = problem['LeetCode Tags']?.split(',')
+    const leetcodeTags = problem['LeetCode Tags']?.split('|')
       .map(tag => `LeetCode:${tag.trim()}`) || [];
-    const customTags = problem['Tags']?.split(',')
+    const customTags = problem['Tags']?.split('|')
       .map(tag => tag.trim())
       .filter(Boolean) || [];
     
     return {
       ...problem,
-      Tags: [...leetcodeTags, ...customTags].join(', ')
+      Tags: [...leetcodeTags, ...customTags].join(' | ')
     };
   });
 }

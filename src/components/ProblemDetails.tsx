@@ -11,7 +11,7 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
     {problem[COLUMNS.TAGS] && (
       <div>
         <strong>Tags:</strong>{' '}
-        {problem[COLUMNS.TAGS].split(',').map((tag, index, array) => {
+        {problem[COLUMNS.TAGS].split('|').map((tag, index, array) => {
           const trimmedTag = tag.trim();
           const isLast = index === array.length - 1;
           return trimmedTag.startsWith(LEETCODE_TAG_PREFIX) ? (
@@ -32,7 +32,7 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
             )
             {problem[COLUMNS.RUNTIME].includes('|') && 
               <span style={{ fontSize: '0.9em', opacity: 0.8 }}>
-                , where {problem[COLUMNS.RUNTIME].split('|')[1].trim()}
+                , where {problem[COLUMNS.RUNTIME].split('|').slice(1).join(', ')}
               </span>
             }
           </div>
@@ -46,7 +46,7 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
             )
             {problem[COLUMNS.SPACE].includes('|') && 
               <span style={{ fontSize: '0.9em', opacity: 0.8 }}>
-                , where {problem[COLUMNS.SPACE].split('|')[1].trim()}
+                , where {problem[COLUMNS.SPACE].split('|').slice(1).join(', ')}
               </span>
             }
           </div>

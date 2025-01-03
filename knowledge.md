@@ -32,7 +32,7 @@
   - Times over 60 minutes are considered very difficult
   - Tags: Problem categories/techniques
     - Can include compound tags (e.g., "Math:Parity")
-    - Comma-separated, preserve special characters
+    - Pipe-delimited (|), preserve special characters
     - May be empty/undefined
   - Runtime: Time complexity 
     - Format complexity without "O()" prefix in CSV: "N|N is the length of the array"
@@ -42,13 +42,15 @@
     - Examples: "O(N)", "O(min(N,M))", "O(N) | N is the length of the array", "O(min(N,M)) | N and M are array lengths"
   - Space: Space complexity
     - Follow same formatting as Runtime complexity
-    - Examples: "O(1)", "O(N), where N is input size", "O(min(N,M))"
+    - Examples: "O(1)", "O(N)|N is input size", "O(min(N,M))"
   - Notes: Additional context or observations about the solution
 
 ## CSV Requirements
 - Filter out empty rows
 - Validate each row has required fields
 - Last line should not be empty to avoid phantom entries
+- Fields containing pipes (|) or commas must be quoted
+- Notes field should always be quoted if non-empty
 - PapaParse transform limitations:
   - Transform functions run during parsing, cannot access full results
   - For cross-row transforms, process after parsing complete

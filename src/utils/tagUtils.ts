@@ -4,7 +4,7 @@ export const extractAndOrderTags = (problems: { Tags?: string }[]) => {
   const tags = new Set<string>()
   problems.forEach(problem => {
     if (problem.Tags) {
-      problem.Tags.split(',').forEach(tag => {
+      problem.Tags.split('|').forEach(tag => {
         const trimmed = tag.trim()
         if (trimmed) tags.add(trimmed)
       })
