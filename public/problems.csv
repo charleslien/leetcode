@@ -28,4 +28,4 @@ max-dot-product-of-two-subsequences,5,10,"Array,Dynamic Programming","","N*M|N i
 maximum-score-after-splitting-a-string,1,2,"String,Prefix Sum","","N|N is the length of the string","1",
 minimum-cost-for-tickets,2,5,"Array,Dynamic Programming","","N|N is the number of days in the array","N",
 largest-number,5,5,"Array,String,Greedy,Sorting","",N*log(N)|N is the length of nums,N,
-number-of-ways-to-split-array,2,2,"Array,Prefix Sum","",N|N is the length of nums,N,
+number-of-ways-to-split-array,2,2,"Array,Prefix Sum","",N|N is the length of nums,1,
