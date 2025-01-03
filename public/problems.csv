@@ -29,3 +29,4 @@ maximum-score-after-splitting-a-string,1,2,String|Prefix Sum,,N,1,N = length of 
 minimum-cost-for-tickets,2,5,Array|Dynamic Programming,,N,N,N = number of days,
 largest-number,5,5,Array|String|Greedy|Sorting,,N*log(N),N,N = length of nums,
 number-of-ways-to-split-array,2,2,Array|Prefix Sum,,N,1,N = length of nums,
+n-queens,2,5,Array|Backtracking,,N!,N!*N^2,,
