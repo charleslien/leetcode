@@ -30,11 +30,11 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
               i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
             )}
             )
-            {problem[COLUMNS.RUNTIME].includes('|') && 
-              <span style={{ fontSize: '0.9em', opacity: 0.8 }}>
-                , where {problem[COLUMNS.RUNTIME].split('|').slice(1).join(', ')}
-              </span>
-            }
+            {problem[COLUMNS.RUNTIME].includes('|') && (
+              <div style={{ fontSize: '0.9em', opacity: 0.8, marginTop: '0.25rem', marginLeft: '1rem' }}>
+                where {problem[COLUMNS.RUNTIME].split('|').slice(1).join(', ')}
+              </div>
+            )}
           </div>
         )}
         {problem[COLUMNS.SPACE] && (
@@ -44,11 +44,11 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
               i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
             )}
             )
-            {problem[COLUMNS.SPACE].includes('|') && 
-              <span style={{ fontSize: '0.9em', opacity: 0.8 }}>
-                , where {problem[COLUMNS.SPACE].split('|').slice(1).join(', ')}
-              </span>
-            }
+            {problem[COLUMNS.SPACE].includes('|') && (
+              <div style={{ fontSize: '0.9em', opacity: 0.8, marginTop: '0.25rem', marginLeft: '1rem' }}>
+                where {problem[COLUMNS.SPACE].split('|').slice(1).join(', ')}
+              </div>
+            )}
           </div>
         )}
     {problem[COLUMNS.NOTES] && <div><strong>Notes:</strong> {problem[COLUMNS.NOTES]}</div>}
