@@ -38,3 +38,5 @@ regular-expression-matching,5,10,String|Dynamic Programming|Recursion,,N^3*M,N,N
 container-with-most-water,10,5,Array|Two Pointers|Greedy,,N,1,N = length of height,
 stone-game-vi,10,5,Array|Math|Greedy|Sorting|Heap (Priority Queue)|Game Theory,,N*log(N),N,N = length of aliceValues,
 integer-to-roman,2,5,Hash Table|Math|String,,log(N),1,N = nums,
+stone-game,2,1,Array|Math|Dynamic Programming|Game Theory,,N*log(N),N,N = length of piles,
+stone-game-ii,5,5,Array|Math|Dynamic Programming|Prefix Sum|Game Theory,,N^3,N,N = length of piles,
