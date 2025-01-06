@@ -36,4 +36,4 @@ minimum-number-of-operations-to-move-all-balls-to-each-box,5,5,Array|String|Pref
 n-queens-ii,2,5,Backtracking,,N!,N^2,,
 regular-expression-matching,5,10,String|Dynamic Programming|Recursion,,N^3*M,N,N = length of s|M = length of p,
 container-with-most-water,10,5,Array|Two Pointers|Greedy,,N,1,N = length of height,
-stone-game-vi,5,15,Array|Math|Greedy|Sorting|Heap (Priority Queue)|Game Theory,,N*log(N),N,N = length of aliceValues
+stone-game-vi,10,5,Array|Math|Greedy|Sorting|Heap (Priority Queue)|Game Theory,,N*log(N),N,N = length of aliceValues,
