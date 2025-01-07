@@ -42,3 +42,4 @@ stone-game,2,1,Array|Math|Dynamic Programming|Game Theory,,N*log(N),N,N = length
 stone-game-ii,5,5,Array|Math|Dynamic Programming|Prefix Sum|Game Theory,,N^3,N,N = length of piles,
 stone-game-iii,5,5,Array|Math|Dynamic Programming|Game Theory,,N,N,N = length of stoneValue,
 stone-game-iv,5,2,Math|Dynamic Programming|Game Theory,,N,N,,
+stone-game-vii,5,5,Array|Math|Dynamic Programming|Game Theory,,N^3,N,N = length of stones,
