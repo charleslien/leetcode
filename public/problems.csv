@@ -44,3 +44,4 @@ stone-game-iii,5,5,Array|Math|Dynamic Programming|Game Theory,,N,N,N = length of
 stone-game-iv,5,2,Math|Dynamic Programming|Game Theory,,N,N,,
 stone-game-vii,5,5,Array|Math|Dynamic Programming|Game Theory,,N^3,N,N = length of stones,
 roman-to-integer,1,2,Hash Table|Math|String,,N,1,N = length of s,
+letter-combinations-of-a-phone-number,1,5,Hash Table|String|Backtracking,,4^N,N*4^N,N = length of digits,
