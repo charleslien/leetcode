@@ -18,11 +18,11 @@ special-array-ii,5,10,Array|Binary Search|Prefix Sum,,$N+Q \cdot \log(N)$,$N$,$N
 knight-dialer,5,15,Dynamic Programming,Markov Model,$\log(N)$,$1$,,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 5."
 number-of-ways-to-paint-n-3-grid,5,15,Dynamic Programming,Markov Model,$\log(N)$,$1$,,"There is inflated time on the Coding score because of the need to code your own matrix power and matrix multiplication with modulos. Otherwise, the score would be 5."
 reverse-prefix-of-word,1,2,Two Pointers|String|Stack,,$N$,$N$,$N$ = length of $word$,
-check-if-one-string-swap-can-make-strings-equal,1,2,Hash Table|String|Counting,,$\min(N,M)$,$1$,$N$ = length of s1|$M$ = length of $s2$,
+check-if-one-string-swap-can-make-strings-equal,1,2,Hash Table|String|Counting,,"$\min(N,M)$",$1$,$N$ = length of s1|$M$ = length of $s2$,
 make-string-a-subsequence-using-cyclic-increments,1,2,Two Pointers|String,,$N$,$1$,$N$ = length of $str1$,
 minimum-difference-in-sums-after-removal-of-elements,15,10,Array|Dynamic Programming|Heap (Priority Queue),,$N \cdot \log(N)$,$N$,$N$ = length of $nums$,
 copy-list-with-random-pointer,1,5,Hash Table|Linked List,,$N$,$N$,$N$ = number of nodes,
-max-dot-product-of-two-subsequences,5,10,Array|Dynamic Programming,,$N \cdot M$,$\min(N,M)$,$N$ = length of nums1|$M$ = length of $nums2$,
+max-dot-product-of-two-subsequences,5,10,Array|Dynamic Programming,,$N \cdot M$,"$\min(N,M)$",$N$ = length of nums1|$M$ = length of $nums2$,
 maximum-score-after-splitting-a-string,1,2,String|Prefix Sum,,$N$,$1$,$N$ = length of $string$,
 minimum-cost-for-tickets,2,5,Array|Dynamic Programming,,$N$,$N$,$N$ = number of days,
 largest-number,5,5,Array|String|Greedy|Sorting,,$N \cdot \log(N)$,$N$,$N$ = length of $nums$,
