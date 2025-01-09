@@ -1,9 +1,28 @@
 import React from 'react'
 import { Problem } from '../types'
 import { COLUMNS, LEETCODE_TAG_PREFIX } from '../constants'
+import { LatexRenderer } from './LatexRenderer'
 
 interface ProblemDetailsProps {
   problem: Problem;
+}
+
+const renderLatexExpression = (text: string) => {
+  // Split on $ but keep the delimiters in the result
+  const parts = text.split(/(\$[^$]+\$)/g)
+  return (
+    <>
+      {parts.map((part, index) => {
+        // Check if part is a LaTeX expression (starts and ends with $)
+        if (part.startsWith('$') && part.endsWith('$')) {
+          // Remove the dollar signs before passing to LatexRenderer
+          return <LatexRenderer key={index} latex={part.slice(1, -1)} inline />
+        }
+        // Regular text - wrap in span to maintain consistent layout and preserve whitespace
+        return <span key={index} style={{ display: 'inline-block', whiteSpace: 'pre-wrap' }}>{part}</span>
+      })}
+    </>
+  )
 }
 
 export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
@@ -23,34 +42,30 @@ export const ProblemDetails: React.FC<ProblemDetailsProps> = ({ problem }) => (
           ) : trimmedTag + (!isLast ? ', ' : '')
         })}
       </div>
-    )}        {problem[COLUMNS.RUNTIME] && (
-          <div className="detail-chip">
-            <strong>Runtime:</strong> O(
-            {problem[COLUMNS.RUNTIME].split('^').map((part, i) => 
-              i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
-            )}
-            )
-          </div>
-        )}
-        {problem[COLUMNS.SPACE] && (
-          <div className="detail-chip">
-            <strong>Space:</strong> O(
-            {problem[COLUMNS.SPACE].split('^').map((part, i) => 
-              i > 0 ? <sup key={i}>{part}</sup> : part.replace(/\*/g, '·')
-            )}
-            )
-          </div>
-        )}
-    {problem[COLUMNS.VARIABLES] && (
+    )}
+    {problem[COLUMNS.RUNTIME] && (
       <div className="detail-chip">
-        <strong>Variables:</strong>
-        {problem[COLUMNS.VARIABLES].split('|').map((variable, i) => (
-          <div key={i} style={{ marginLeft: '1rem', marginTop: '0.25rem' }}>
-            • {variable.trim()}
-          </div>
-        ))}
+        <strong>Runtime:</strong> O({renderLatexExpression(problem[COLUMNS.RUNTIME])})
       </div>
     )}
-    {problem[COLUMNS.NOTES] && <div className="detail-chip"><strong>Notes:</strong> {problem[COLUMNS.NOTES]}</div>}
+    {problem[COLUMNS.SPACE] && (
+      <div className="detail-chip">
+        <strong>Space:</strong> O({renderLatexExpression(problem[COLUMNS.SPACE])})
+      </div>
+    )}        {problem[COLUMNS.VARIABLES] && (
+          <div className="detail-chip">
+            <strong>Variables:</strong>
+            {problem[COLUMNS.VARIABLES].split('|').map((variable, i) => (
+              <div key={i} style={{ marginLeft: '1rem', marginTop: '0.25rem' }}>
+                • {renderLatexExpression(variable)}
+              </div>
+            ))}
+          </div>
+        )}
+    {problem[COLUMNS.NOTES] && (
+      <div className="detail-chip">
+        <strong>Notes:</strong> {renderLatexExpression(problem[COLUMNS.NOTES])}
+      </div>
+    )}
   </div>
 )

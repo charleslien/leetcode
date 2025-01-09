@@ -60,6 +60,8 @@
 
 ## Data Organization
     - Examples: "O(N), where N is array length", "O(N²)"
+  - Use dollar signs for LaTeX math mode: "$N \cdot \log N$", "$N^2$"
+  - Use \cdot for multiplication instead of * in LaTeX expressions
 
 ## Development
 - Run `npm run dev` to start development server
@@ -79,6 +81,16 @@
 - For full-width layouts, ensure all parent elements (html, body, #root) have width:100%
 - Chrome and other browsers may require explicit width settings on parent containers
 - Default body styles in index.css may affect child element layouts
+
+## LaTeX Support
+- Use LatexRenderer component to render mathematical expressions
+- Supports both inline and display math modes
+- Uses KaTeX for fast rendering
+- Configured to render MathML output for better accessibility and compatibility
+- Example: `<LatexRenderer latex="E = mc^2" inline />`
+- When mixing LaTeX and regular text, use React Fragments and inline-block spans to prevent layout issues
+- When processing LaTeX expressions, preserve all whitespace in text segments
+- Only remove $ delimiters from LaTeX expressions, not surrounding whitespace
 
 ## Design Principles
 - Focus on core metrics (Problem ID, Thinking, Coding) in main view
